@@ -39,7 +39,7 @@ from bot.helper_funcs.utils import(
         
 async def incoming_start_message_f(bot, update):
     """/start command"""
-    if update.from_user.id not  AUTH_USERS:
+    if update.from_user.id  AUTH_USERS:
         await update.message.delete()
         return
     # LOGGER.info(update)
