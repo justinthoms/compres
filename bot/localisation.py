@@ -25,9 +25,9 @@ class Localisation:
     FORMAT_SELECTION = "Select the desired format: <a href='{}'>file size might be approximate</a> \nIf you want to set custom thumbnail, send photo before or quickly after tapping on any of the below buttons.\nYou can use /deletethumbnail to delete the auto-generated thumbnail."
     
     
-    DOWNLOAD_START = "📥 Downloading 📥 \n"
+    DOWNLOAD_START = "📥 Downloading To Local server 📥 \n"
     
-    UPLOAD_START = "📤 Uploading 📤 \n"
+    UPLOAD_START = "📤 Uploading To Telegram 📤 \n"
     
     COMPRESS_START = "📀 Trying to compress... 📀"
     
