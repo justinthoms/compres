@@ -89,7 +89,7 @@ if __name__ == "__main__" :
     
         # DONATE command
     incoming_donate_message_handler = MessageHandler(
-        incoming_cancel_message_f,
+        incoming_donate_message_f,
         filters=Filters.command([Command.DONATE])
     )
     app.add_handler(incoming_donate_message_handler)
