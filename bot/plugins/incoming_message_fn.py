@@ -42,10 +42,11 @@ async def incoming_start_message_f(bot, update):
     # LOGGER.info(update)
     await bot.send_message(
         chat_id=update.chat.id,
-        text=Localisation.START_TEXT,
+        text=Localisation.START_TEXT,reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("About", callback_data="about"))
         reply_to_message_id=update.message_id
     )
-    
+              
 async def incoming_compress_message_f(bot, update):
   """/compress command"""
   if update.reply_to_message is None:
