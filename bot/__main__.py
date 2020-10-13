@@ -85,6 +85,13 @@ if __name__ == "__main__" :
     )
     app.add_handler(exec_message_handler)
     
+    # ABOUT COMMANDs
+    incoming_about_message_handler = MessageHandler(
+        incoming_about_message_f,
+        filters=Filters.command([Command.ABOUT])
+    )
+    app.add_handler(exec_message_handler)
+    
     # HELP command
     help_text_handler = MessageHandler(
         help_message_f,
