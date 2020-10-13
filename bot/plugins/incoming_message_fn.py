@@ -249,7 +249,13 @@ async def incoming_compress_message_f(bot, update):
     except:
       pass
     
-    
+async def incoming_donate_message_f(bot, update):
+  """/donate command"""
+  inline_keyboard = []
+  ikeyboard = []
+  ikeyboard.append(InlineKeyboardButton("close 🚫", callback_data=("fuckingdo").encode("UTF-8")))
+  inline_keyboard.append(ikeyboard)
+  await update.reply_text("a cup of coffi", reply_markup=reply_markup, quote=True)
 async def incoming_cancel_message_f(bot, update):
   """/cancel command"""
   status = DOWNLOAD_LOCATION + "/status.json"
@@ -260,7 +266,7 @@ async def incoming_cancel_message_f(bot, update):
     ikeyboard.append(InlineKeyboardButton("No 🤗", callback_data=("fuckoff").encode("UTF-8")))
     inline_keyboard.append(ikeyboard)
     reply_markup = InlineKeyboardMarkup(inline_keyboard)
-    await update.reply_text("Are you sure? 🚫 This will stop the compression", reply_markup=reply_markup, quote=True)
+    await update.reply_text("", reply_markup=reply_markup, quote=True)
   else:
     delete_downloads()
     await bot.send_message(
