@@ -64,6 +64,13 @@ if __name__ == "__main__" :
     )
     app.add_handler(incoming_start_message_handler)
     
+    # ABOUT COMMANDs
+    incoming_about_message_handler = MessageHandler(
+        incoming_about_message_f,
+        filters=Filters.command([Command.ABOUT])
+    )
+    app.add_handler(incoming_about_message_handler)
+    
     # COMPRESS command
     incoming_compress_message_handler = MessageHandler(
         incoming_compress_message_f,
@@ -82,13 +89,6 @@ if __name__ == "__main__" :
     exec_message_handler = MessageHandler(
         exec_message_f,
         filters=Filters.command([Command.EXEC]) & Filters.chat(chats=AUTH_USERS)
-    )
-    app.add_handler(exec_message_handler)
-    
-    # ABOUT COMMANDs
-    incoming_about_message_handler = MessageHandler(
-        incoming_about_message_f,
-        filters=Filters.command([Command.ABOUT])
     )
     app.add_handler(exec_message_handler)
     
