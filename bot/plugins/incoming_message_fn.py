@@ -251,11 +251,11 @@ async def incoming_compress_message_f(bot, update):
     
 async def incoming_donate_message_f(bot, update):
   """/donate command"""
-  inline_keyboard = []
-  ikeyboard = []
-  ikeyboard.append(InlineKeyboardButton("close 🚫", callback_data=("fuckingdo").encode("UTF-8")))
-  inline_keyboard.append(ikeyboard)
-  await update.reply_text("a cup of coffi", reply_markup=reply_markup, quote=True)
+  await bot.send_message(
+        chat_id=update.chat.id,
+        text=Localisation.DONATE,
+        reply_to_message_id=update.message_id
+    )
 async def incoming_cancel_message_f(bot, update):
   """/cancel command"""
   status = DOWNLOAD_LOCATION + "/status.json"
