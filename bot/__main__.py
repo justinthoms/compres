@@ -27,7 +27,8 @@ from pyrogram import (
 from bot.plugins.incoming_message_fn import (
     incoming_start_message_f,
     incoming_compress_message_f,
-    incoming_cancel_message_f
+    incoming_cancel_message_f,
+    incoming_about_message_f
 )
 
 
