@@ -28,7 +28,8 @@ from bot.plugins.incoming_message_fn import (
     incoming_start_message_f,
     incoming_compress_message_f,
     incoming_cancel_message_f,
-    incoming_about_message_f
+    incoming_about_message_f,
+    incoming_donate_message_f
 )
 
 
@@ -85,6 +86,13 @@ if __name__ == "__main__" :
         filters=Filters.command([Command.CANCEL])
     )
     app.add_handler(incoming_cancel_message_handler)
+    
+        # DONATE command
+    incoming_donate_message_handler = MessageHandler(
+        incoming_cancel_message_f,
+        filters=Filters.command([Command.DONATE])
+    )
+    app.add_handler(incoming_donate_message_handler)
 
     # MEMEs COMMANDs
     exec_message_handler = MessageHandler(
