@@ -46,6 +46,10 @@ class Command:
         "COMMAND_HELP",
         "help"
     )
+    DONATE = get_config(
+        "COMMAND_DONATE",
+        "help"
+    )
     UPLOAD_LOG_FILE = get_config(
         "COMMAND_UPLOAD_LOG_FILE",
         "log"
