@@ -30,6 +30,10 @@ class Command:
         "COMMAND_CANCEL",
         "cancel"
     )
+    ABOUT = get_config(
+        "COMMAND_ABOUT",
+        "about"
+    )
     STATUS = get_config(
         "COMMAND_STATUS",
         "status"
