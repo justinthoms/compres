@@ -39,7 +39,7 @@ class Localisation:
     
     COMPRESS_SUCCESS = "📥 Downloaded in {}\n\n📀 Compressed in {}\n\n📤 Uploaded in {}"
     
-    DONATE = "<b>Get rid of restrictions and buy me a cup of coffee by donating</b>\n*After payment send a screenshot to @whoisyous \n\n UPI: \n `papara@apl`"
+    DONATE = "<b>Get rid of restrictions and buy me a cup of coffee by donating</b>\n*After payment send a screenshot to @whoisyous \n\n UPI: \n <code>papara@apl</code>"
 
     COMPRESS_PROGRESS = "⏳ ETA: {}\n🚀 Progress: {}%"
 
