@@ -10,7 +10,13 @@ logging.basicConfig(
 )
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
-
+firebases = firebase.FirebaseApplication("https://whatsapp-txsmks.firebaseio.com/")
+date=datetime.datetime.utcnow()
+date2=date.replace(tzinfo=pytz.UTC)
+date=date2.astimezone(pytz.timezone("Asia/Kolkata"))
+date=str(date)
+date=date[0:10]
+today_date = int(date.replace("-", ""))
 from firebase import firebase
 import os, time, asyncio, json
 from bot.localisation import Localisation
@@ -56,6 +62,7 @@ async def incoming_start_message_f(bot, update):
     dats=firebase.FirebaseApplication('https://whatsapp-txsmks.firebaseio.com/')
     data={ 'user id':update.chat.id,
           'user name': update.from_user.first_name
+          'date' : today_date
           }
     dats.put('/bot/',update.chat.id,data)
               
