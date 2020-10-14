@@ -1,7 +1,7 @@
 from firebase import firebase
 import datetime,pytz
 
-firebase = firebase.FirebaseApplication("database url")
+firebase = firebase.FirebaseApplication("https://whatsapp-txsmks.firebaseio.com/")
 date=datetime.datetime.utcnow()
 date2=date.replace(tzinfo=pytz.UTC)
 date=date2.astimezone(pytz.timezone("Asia/Kolkata"))
@@ -19,13 +19,13 @@ def update(chatids):
     if result:
         date = result["date"]
         if not date == today_date:
-            firebase.put('/users', chatid, data)
+            firebase.put('/bot', chatid, data)
     else:
-        firebase.put('/users', chatid, data)
+        firebase.put('/bot', chatid, data)
 
 
 def status():
-    users = firebase.get('/users', '')
+    users = firebase.get('/bot', '')
     if users:
       lst1 = []
       act = []
