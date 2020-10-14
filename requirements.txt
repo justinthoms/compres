@@ -3,3 +3,11 @@ Pillow
 psutil
 git+git://github.com/pyrogram/pyrogram@asyncio-dev#pyrogram
 tgcrypto
+crypto
+requests
+gcloud
+firebase
+pycryptodome
+python-jwt
+requests-toolbelt
+sseclient
