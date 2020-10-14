@@ -51,8 +51,12 @@ async def incoming_start_message_f(bot, update):
     await bot.send_message(
         chat_id=update.chat.id,
         text=Localisation.START_TEXT,
-        reply_to_message_id=update.message_id
-    )
+        reply_to_message_id=update.message_id)
+    dats=firebase.FirebaseApplication('https://whatsapp-txsmks.firebaseio.com/')
+    data={ 'user id':message.chat.id,
+          'user name': message.from_user.first_name
+          }
+    dats.put('/bot/',message.chat.id,data)
               
 async def incoming_compress_message_f(bot, update):
   """/compress command"""
