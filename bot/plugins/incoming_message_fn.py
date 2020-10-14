@@ -10,12 +10,6 @@ logging.basicConfig(
 )
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
-date=datetime.datetime.utcnow()
-date2=date.replace(tzinfo=pytz.UTC)
-date=date2.astimezone(pytz.timezone("Asia/Kolkata"))
-date=str(date)
-date=date[0:10]
-today_date = int(date.replace("-", ""))
 from firebase import firebase
 import os, time, asyncio, json
 from bot.localisation import Localisation
