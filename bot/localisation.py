@@ -15,9 +15,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 from bot.get_cfg import get_config
-from bot.helper_funcs.ffmpeg import (
-  convert_video
-)
 
 class Localisation:
     START_TEXT = "_Hello, \n\nThis is a Telegram Video Compress Bot_\n\n<b>Please sent me any Telegram big file I Will compress a small file</b> \n\n/help for more details... \n\nSupport Group :@CWPSupport"
