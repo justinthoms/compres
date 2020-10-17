@@ -81,11 +81,11 @@ if __name__ == "__main__" :
     app.add_handler(incoming_compress_message_handler)
     
     # CANCEL command
-    incoming_cancel_message_handler = MessageHandler(
-        incoming_cancel_message_f,
-        filters=Filters.command([Command.CANCEL])
-    )
-    app.add_handler(incoming_cancel_message_handler)
+  #  incoming_cancel_message_handler = MessageHandler(
+   #     incoming_cancel_message_f,
+    #    filters=Filters.command([Command.CANCEL])
+    #)
+    #app.add_handler(incoming_cancel_message_handler)
     
         # DONATE command
     incoming_donate_message_handler = MessageHandler(
