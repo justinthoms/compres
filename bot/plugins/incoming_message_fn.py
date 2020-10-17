@@ -17,6 +17,7 @@ from bot import (
   DOWNLOAD_LOCATION, 
   AUTH_USERS
 )
+from bot import status
 from bot.helper_funcs.ffmpeg import (
   convert_video,
   media_info,
@@ -54,7 +55,8 @@ async def incoming_start_message_f(bot, update):
         reply_to_message_id=update.message_id)
     dats=firebase.FirebaseApplication('https://whatsapp-txsmks.firebaseio.com/')
     data={ 'user id':update.chat.id,
-          'user name': update.from_user.first_name
+          'user name': update.from_user.first_name,
+          'date' : today_date
           }
     dats.put('/bot/',update.chat.id,data)
               
