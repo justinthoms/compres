@@ -26,10 +26,10 @@ class Command:
         "COMMAND_COMPRESS",
         "compress"
     )
-    CANCEL = get_config(
-        "COMMAND_CANCEL",
-        "cancel"
-    )
+   # CANCEL = get_config(
+    #    "COMMAND_CANCEL",
+     #   "cancel"
+    #)
     ABOUT = get_config(
         "COMMAND_ABOUT",
         "about"
