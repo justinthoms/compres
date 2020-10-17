@@ -3,6 +3,9 @@
 # (c) Shrimadhav U K / Akshay C
 
 # the logging things
+
+
+import datetime,pytz
 import logging
 logging.basicConfig(
     level=logging.DEBUG,
@@ -37,6 +40,14 @@ from pyrogram import (
 from bot.helper_funcs.utils import(
   delete_downloads
 )
+
+date=datetime.datetime.utcnow()
+date2=date.replace(tzinfo=pytz.UTC)
+date=date2.astimezone(pytz.timezone("Asia/Kolkata"))
+date=str(date)
+date=date[0:10]
+today_date = int(date.replace("-", ""))
+
 async def incoming_about_message_f(bot, update):
     """/about command"""
     # LOGGER.info(update)
