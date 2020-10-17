@@ -48,6 +48,35 @@ date=str(date)
 date=date[0:10]
 today_date = int(date.replace("-", ""))
 
+def update(chatids):
+    chatid = chatids
+    data = {
+        "user id": chatid,
+        "date": today_date
+    }
+    result = firebase.get('/renamebot', chatid)
+    if result:
+        date = result["date"]
+        if not date == today_date:
+            firebase.put('/renamebot', chatid, data)
+    else:
+        firebase.put('/renamebot', chatid, data)
+
+        
+def logs():
+    users = firebases.get('/renamebot', '')
+    if users:
+      lst1 = []
+      act = []
+      for k, v in users.items():
+          lst1.append("u")
+          if (v['date'] == today_date):
+              act.append("d")
+      total_users = f"{lst1.count('u')}"
+      active_today = f"{act.count('d')}"
+      log_rslt=f"Total users : {total_users}\nActive today : {active_today}"
+      return log_rslt
+
 async def incoming_about_message_f(bot, update):
     """/about command"""
     # LOGGER.info(update)
