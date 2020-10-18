@@ -80,6 +80,13 @@ if __name__ == "__main__" :
     )
     app.add_handler(incoming_compress_message_handler)
     
+    # reset command
+    incoming_reset_message_handler = MessageHandler(
+        incoming_reset_message_f,
+        filters=Filters.command([Command.reset])
+    )
+    app.add_handler(incoming_reset_message_handler)
+    
     # CANCEL command
   #  incoming_cancel_message_handler = MessageHandler(
    #     incoming_cancel_message_f,
