@@ -39,7 +39,7 @@ class Command:
         "status"
     )
     reset = get_config(
-        "COMMAND_reset",
+        "COMMAND_RESET",
         "reset"
     )
     EXEC = get_config(
