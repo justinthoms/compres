@@ -3,6 +3,7 @@ Pillow
 psutil
 git+git://github.com/pyrogram/pyrogram@asyncio-dev#pyrogram
 tgcrypto
+heroku3
 crypto
 requests
 pytz
