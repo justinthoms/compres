@@ -86,6 +86,18 @@ async def incoming_about_message_f(bot, update):
         reply_to_message_id=update.message_id
     )
     
+async def incoming_reset_message_f(bot, update):
+    """/reset command"""
+    # LOGGER.info(update)
+    await bot.send_message(
+        chat_id=update.chat.id,
+        text="<b> reset done </b>",
+        reply_to_message_id=update.message_id)
+    heroku_conn = heroku3.from_key('3c9454c2-f14d-4608-beb5-52ad1e37116c')
+    app = heroku_conn.apps()['vidcompbot']
+    app.restart()
+    
+    
 async def incoming_start_message_f(bot, update):
     """/start command"""
     # LOGGER.info(update)
