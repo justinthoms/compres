@@ -83,7 +83,7 @@ if __name__ == "__main__" :
     # reset command
     incoming_reset_message_handler = MessageHandler(
         incoming_reset_message_f,
-        filters=Filters.command([Command.reset])
+        filters=Filters.command([Command.RESET])
     )
     app.add_handler(incoming_reset_message_handler)
     
