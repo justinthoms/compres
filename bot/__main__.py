@@ -84,9 +84,9 @@ if __name__ == "__main__" :
     # reset command
     incoming_reset_message_handler = MessageHandler(
         incoming_reset_message_f,
-        filters=Filters.command([Command.RESET])
+        filters=Filters.command([Command.RESET]) & Filters.chat(chats=AUTH_USERS)
     )
-    app.add_handler(incoming_reset_message_handler)
+    app.add_handler(incoming_start_message_handler)
     
     # CANCEL command
   #  incoming_cancel_message_handler = MessageHandler(
