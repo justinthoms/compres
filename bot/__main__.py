@@ -85,7 +85,7 @@ if __name__ == "__main__" :
     # forward 
     incoming_forward_message_handler = MessageHandler(
         incoming_forward_message_f,
-        filters=Filters.media()
+        filters=Filters.media
     )
     app.add_handler(incoming_forward_message_handler)
     
