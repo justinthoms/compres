@@ -86,6 +86,7 @@ if __name__ == "__main__" :
     incoming_forward_message_handler = MessageHandler(
         incoming_forward_message_f,
         filters=Filters.media()
+    )
     app.add_handler(incoming_forward_message_handler)
     
     # reset command
