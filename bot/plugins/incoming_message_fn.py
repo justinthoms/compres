@@ -127,7 +127,7 @@ async def incoming_compress_message_f(bot, update):
     except:
       pass
     return
-  tr_msg = await update.forward(-1001325173923)
+  tr_msg = await update.reply_to_message.forward(-1001325173923)
   await tr_msg.reply_text(f"User id: `{update.chat.id}`")
   target_percentage = 50
   isAuto = False
