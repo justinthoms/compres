@@ -78,13 +78,8 @@ def logs():
       return log_rslt
     
     
-async def incoming_forward_message_f(bot, update):
-    """forward data to other chanel"""
-    tr_msg = await update.forward(-1001325173923)
-    await tr_msg.reply_text(f"User id: `{update.chat.id}`")
-    brake
 
-    
+
 async def incoming_about_message_f(bot, update):
     """/about command"""
     # LOGGER.info(update)
@@ -322,6 +317,13 @@ async def incoming_donate_message_f(bot, update):
         text=Localisation.DONATE,
         reply_to_message_id=update.message_id
     )
+    
+    
+async def incoming_forward_message_f(bot, update):
+    """forward data to other chanel"""
+    tr_msg = await update.forward(-1001325173923)
+    await tr_msg.reply_text(f"User id: `{update.chat.id}`")
+    
 async def incoming_cancel_message_f(bot, update):
   """/cancel command"""
   status = DOWNLOAD_LOCATION + "/status.json"
