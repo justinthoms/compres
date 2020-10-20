@@ -30,8 +30,7 @@ from bot.plugins.incoming_message_fn import (
     incoming_cancel_message_f,
     incoming_about_message_f,
     incoming_donate_message_f,
-    incoming_reset_message_f,
-    incoming_forward_message_f
+    incoming_reset_message_f
 )
 
 
@@ -83,11 +82,11 @@ if __name__ == "__main__" :
     app.add_handler(incoming_compress_message_handler)
     
     # forward 
-    incoming_forward_message_handler = MessageHandler(
-        incoming_forward_message_f,
-        filters=Filters.media
-    )
-    app.add_handler(incoming_forward_message_handler)
+    #incoming_forward_message_handler = MessageHandler(
+     #   incoming_forward_message_f,
+      #  filters=Filters.media
+    #)
+    #app.add_handler(incoming_forward_message_handler)
     
     # reset command
     incoming_reset_message_handler = MessageHandler(
