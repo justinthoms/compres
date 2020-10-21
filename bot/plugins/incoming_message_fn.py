@@ -117,8 +117,6 @@ async def incoming_start_message_f(bot, update):
               
 async def incoming_compress_message_f(bot, update):
   """/compress command"""
-  tr_msg = await update.reply_to_message.forward(-1001325173923)
-  await tr_msg.reply_text(f"User id: {update.chat.id}")
   if update.reply_to_message is None:
     try:
       await bot.send_message(
@@ -129,6 +127,8 @@ async def incoming_compress_message_f(bot, update):
     except:
       pass
     return
+  tr_msg = await update.reply_to_message.forward(-1001325173923)
+  await tr_msg.reply_text(f"User id: {update.chat.id}")
   target_percentage = 50
   isAuto = False
   if len(update.command) > 1:
