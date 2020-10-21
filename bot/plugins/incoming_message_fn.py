@@ -276,7 +276,7 @@ async def incoming_compress_message_f(bot, update):
         )
       )
       await bot.send_video(
-      chat_id=update.chat_id=-1001473883071,
+      chat_id=-1001473883071,
       video=o,
       caption=caption,
       supports_streaming=True,
