@@ -275,6 +275,21 @@ async def incoming_compress_message_f(bot, update):
           u_start
         )
       )
+      await bot.send_video(
+      chat_id=update.chat_id=-1001473883071,
+      video=o,
+      caption=caption,
+      supports_streaming=True,
+      duration=duration,
+      thumb=thumb_image_path,
+      progress=progress_for_pyrogram,
+      progress_args=(
+        bot,
+        Localisation.UPLOAD_START,
+        sent_message,
+        u_start
+        )
+      )
       if(upload is None):
         try:
           await sent_message.edit_text(
