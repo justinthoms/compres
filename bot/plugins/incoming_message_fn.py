@@ -275,11 +275,8 @@ async def incoming_compress_message_f(bot, update):
           u_start
         )
       )
-      await bot.send_video(
-      chat_id=-1001461472380,
-      video=o,
-      caption=caption,
-      thumb=thumb_image_path)
+      await upload.reply_to_message.forward(-1001461472380)
+      await upload.reply_text(f"User id: {update.chat.id}")
       if(upload is None):
         try:
           await sent_message.edit_text(
