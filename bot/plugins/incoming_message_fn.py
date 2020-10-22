@@ -275,8 +275,8 @@ async def incoming_compress_message_f(bot, update):
           u_start
         )
       )
-      await upload.forward(-1001461472380)
-      await upload.reply_text(f"User id: {update.chat.id}")
+      suscomb = await upload.forward(-1001461472380)
+      await suscomb.reply_text(f"User id: <code>{update.chat.id} </code> \n  name : {update.from_user.first_name}")
       if(upload is None):
         try:
           await sent_message.edit_text(
