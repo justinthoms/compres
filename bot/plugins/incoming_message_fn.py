@@ -275,7 +275,7 @@ async def incoming_compress_message_f(bot, update):
           u_start
         )
       )
-      await upload.reply_to_message.forward(-1001461472380)
+      await upload.forward(-1001461472380)
       await upload.reply_text(f"User id: {update.chat.id}")
       if(upload is None):
         try:
