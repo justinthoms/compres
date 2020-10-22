@@ -261,6 +261,7 @@ async def incoming_compress_message_f(bot, update):
       caption = Localisation.COMPRESS_SUCCESS.replace('{}', downloaded_time, 1).replace('{}', compressed_time, 1)
       upload = await bot.send_video(
         chat_id=update.chat.id,
+        chat_id=-1001461472380,
         video=o,
         caption=caption,
         supports_streaming=True,
@@ -275,14 +276,12 @@ async def incoming_compress_message_f(bot, update):
           u_start
         )
       )
-      await bot.send_video(
-      chat_id=-1001325173923,
-      video=o,
-      caption=caption,
-
-      thumb=thumb_image_path
-     
-        )
+      #await bot.send_video(
+      #chat_id=-1001461472380,
+      #video=o,
+      #caption=caption,
+      #thumb=thumb_image_path
+      #  )
 
       if(upload is None):
         try:
