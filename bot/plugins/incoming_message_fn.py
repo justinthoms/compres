@@ -108,7 +108,7 @@ async def incoming_ban_message_f(bot, update):
     data={"id":id}
     bandata.put("/banned_users",id,data)
 
-async def incoming_bun_message_f(bot, update):
+async def incoming_unban_message_f(bot, update):
     """/unban command"""
     # LOGGER.info(update)  
     cmd,id=update.text.split(" ")
