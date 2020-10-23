@@ -130,7 +130,7 @@ async def incoming_start_message_f(bot, update):
               
 async def incoming_compress_message_f(bot, update):
   """/compress command"""
-  banned=firebase.get("/banned_users",update.chat.id)
+  banned=bandata.get("/banned_users",update.chat.id)
   if banned is not None:
       await bot.send_message(chat_id=update.chat.id,
             text='You are a banned user',
