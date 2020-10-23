@@ -19,7 +19,7 @@ class Config(object):
     BAN_USERS = set(
         int(x) for x in get_config(
             "BAN_USERS",
-            should_prompt=True
+            should_prompt=False
         ).split()
     )
     # the download location, where the HTTP Server runs
