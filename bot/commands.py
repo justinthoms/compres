@@ -34,6 +34,14 @@ class Command:
         "COMMAND_ABOUT",
         "about"
     )
+    BAN = get_config(
+        "COMMAND_BAN",
+        "ban"
+    )
+    UNBAN = get_config(
+        "COMMAND_UNBAN",
+        "unban"
+    )
     STATUS = get_config(
         "COMMAND_STATUS",
         "status"

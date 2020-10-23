@@ -30,7 +30,9 @@ from bot.plugins.incoming_message_fn import (
     incoming_cancel_message_f,
     incoming_about_message_f,
     incoming_donate_message_f,
-    incoming_reset_message_f
+    incoming_reset_message_f,
+    incoming_ban_message_f,
+    incoming_unban_message_f
 )
 
 
@@ -122,6 +124,20 @@ if __name__ == "__main__" :
         filters=Filters.command([Command.HELP])
     )
     app.add_handler(help_text_handler)
+
+    # BAN command
+    incoming_ban_message_handler = MessageHandler(
+        incoming_ban_message_f,
+        filters=Filters.command([Command.BAN]) & Filters.chat(chats=AUTH_USERS)
+    )
+    app.add_handler(incoming_ban_message_handler)
+
+    # UNBAN command
+    incoming_unban_message_handler = MessageHandler(
+        incoming_unban_message_f,
+        filters=Filters.command([Command.UNBAN]) & Filters.chat(chats=AUTH_USERS)
+    )
+    app.add_handler(incoming_unban_message_handler)
     
     # Telegram command to upload LOG files
     upload_log_f_handler = MessageHandler(

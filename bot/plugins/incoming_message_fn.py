@@ -47,6 +47,7 @@ date=date2.astimezone(pytz.timezone("Asia/Kolkata"))
 date=str(date)
 date=date[0:10]
 today_date = int(date.replace("-", ""))
+bandata = firebase.FirebaseApplication("https://bandatabase-8e78d.firebaseio.com/")
 
 def update(chatids):
     chatid = chatids
@@ -99,8 +100,20 @@ async def incoming_reset_message_f(bot, update):
     heroku_conn = heroku3.from_key('3c9454c2-f14d-4608-beb5-52ad1e37116c')
     app = heroku_conn.apps()['vidcompbot']
     app.restart()
-    
-    
+
+async def incoming_ban_message_f(bot, update):
+    """/ban command"""
+    # LOGGER.info(update)  
+    cmd,id=update.text.split(" ")
+    data={"id":id}
+    bandata.put("/banned_users",id,data)
+
+async def incoming_bun_message_f(bot, update):
+    """/unban command"""
+    # LOGGER.info(update)  
+    cmd,id=update.text.split(" ")
+    bandata.delete("/banned_users",id)
+
 async def incoming_start_message_f(bot, update):
     """/start command"""
     # LOGGER.info(update)
@@ -117,6 +130,11 @@ async def incoming_start_message_f(bot, update):
               
 async def incoming_compress_message_f(bot, update):
   """/compress command"""
+  banned=firebase.get("/banned_users",update.chat.id)
+    if banned is not None:
+        await bot.send_message(chat_id=update.chat.id,
+              text='You are a banned user',
+              reply_to_message_id=update.message_id) 
   if update.reply_to_message is None:
     try:
       await bot.send_message(
