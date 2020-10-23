@@ -15,13 +15,6 @@ class Config(object):
             should_prompt=True
         ).split()
     )
-    # array to store the channel ID who are ban to use the bot
-    BAN_USERS = set(
-        int(x) for x in get_config(
-            "BAN_USERS",
-            should_prompt=False
-        ).split()
-    )
     # the download location, where the HTTP Server runs
     DOWNLOAD_LOCATION = get_config("DOWNLOAD_LOCATION", "/app/DOWNLOADS")
     # Telegram maximum file upload size
