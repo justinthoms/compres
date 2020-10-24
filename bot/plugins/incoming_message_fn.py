@@ -107,12 +107,18 @@ async def incoming_ban_message_f(bot, update):
     cmd,id=update.text.split(" ")
     data={"id":id}
     bandata.put("/banned_users",id,data)
+    await bot.send_message(chat_id=update.chat.id,
+                           text=(f'THE USER {id} ADD TO DB'),
+                           reply_to_message_id=update.message_id)
 
 async def incoming_unban_message_f(bot, update):
     """/unban command"""
     # LOGGER.info(update)  
     cmd,id=update.text.split(" ")
     bandata.delete("/banned_users",id)
+    await bot.send_message(chat_id=update.chat.id,
+                           text=(f'THE USER {id} REMOVED TO DB'),
+                           reply_to_message_id=update.message_id)
 
 async def incoming_start_message_f(bot, update):
     """/start command"""
