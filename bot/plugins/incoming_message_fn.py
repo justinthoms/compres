@@ -135,6 +135,7 @@ async def incoming_compress_message_f(bot, update):
       await bot.send_message(chat_id=update.chat.id,
             text='You are a banned user',
             reply_to_message_id=update.message_id) 
+  else:
   if update.reply_to_message is None:
     try:
       await bot.send_message(
