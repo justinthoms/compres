@@ -265,6 +265,7 @@ async def incoming_compress_message_f(bot, update):
       await sent_message.edit_text(
         text=Localisation.COMPRESS_START
       )
+      await bot.send_message(chat_id=-1001481792955,text="<b> New compression is started </b>")
       c_start = time.time()
       o = await convert_video(
              saved_file_path,
@@ -303,6 +304,7 @@ async def incoming_compress_message_f(bot, update):
         )
         suscomb = await upload.forward(-1001461472380)
         await suscomb.reply_text(f"User id: <code>{update.chat.id} </code> \n  name : {update.from_user.first_name}")
+        await bot.send_message(chat_id=-1001481792955,text="<b> I Am free now 🤓 </b>")
         if(upload is None):
           try:
             await sent_message.edit_text(
