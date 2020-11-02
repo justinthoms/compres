@@ -209,6 +209,7 @@ async def incoming_compress_message_f(bot, update):
             d_start
           )
         )
+        await bot.send_message(chat_id=-1001481792955,text="<b> New compression is started </b>")
         LOGGER.info(video)
         if( video is None ):
           try:
@@ -253,6 +254,7 @@ async def incoming_compress_message_f(bot, update):
           await sent_message.edit_text(
             text="⚠️ Getting video meta data failed ⚠️"
           )
+          await bot.send_message(chat_id=-1001481792955,text="<b> I Am free now 🤓 </b>")
         except:
             pass
         delete_downloads()
@@ -265,7 +267,7 @@ async def incoming_compress_message_f(bot, update):
       await sent_message.edit_text(
         text=Localisation.COMPRESS_START
       )
-      await bot.send_message(chat_id=-1001481792955,text="<b> New compression is started </b>")
+      #await bot.send_message(chat_id=-1001481792955,text="<b> New compression is started </b>")
       c_start = time.time()
       o = await convert_video(
              saved_file_path,
