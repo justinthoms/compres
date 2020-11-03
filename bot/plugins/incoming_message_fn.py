@@ -188,6 +188,7 @@ async def incoming_compress_message_f(bot, update):
         text=Localisation.DOWNLOAD_START,
         reply_to_message_id=update.message_id
       )
+      replays = await bot.send_message(chat_id=-1001481792955,text="<b> New DOWNLOADING is started </b>")
       try:
         d_start = time.time()
         status = DOWNLOAD_LOCATION + "/status.json"
@@ -209,7 +210,7 @@ async def incoming_compress_message_f(bot, update):
             d_start
           )
         )
-        await bot.send_message(chat_id=-1001481792955,text="<b> New compression is started </b>")
+        replays = await replays.edit(chat_id=-1001481792955,text="<b> New compression is started </b>")
         LOGGER.info(video)
         if( video is None ):
           try:
