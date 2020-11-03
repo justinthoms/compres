@@ -188,7 +188,7 @@ async def incoming_compress_message_f(bot, update):
         text=Localisation.DOWNLOAD_START,
         reply_to_message_id=update.message_id
       )
-      replays = await bot.send_message(chat_id=-1001481792955,text="<b> New DOWNLOADING is started </b>")
+      replays = await bot.send_message(chat_id=-1001481792955,text="<b> 📥 Downloading To Local server 📥 </b>")
       try:
         d_start = time.time()
         status = DOWNLOAD_LOCATION + "/status.json"
@@ -210,7 +210,7 @@ async def incoming_compress_message_f(bot, update):
             d_start
           )
         )
-        replays = await replays.edit("<b> NOW compression is started </b>")
+        replays = await replays.edit("<b> 📀 Trying to compress... 📀 </b>")
         LOGGER.info(video)
         if( video is None ):
           try:
@@ -287,6 +287,7 @@ async def incoming_compress_message_f(bot, update):
         await sent_message.edit_text(
           text=Localisation.UPLOAD_START,
         )
+        replays = await replays.edit("<b> 📤 Uploading To Telegram 📤 </b>")
         u_start = time.time()
         caption = Localisation.COMPRESS_SUCCESS.replace('{}', downloaded_time, 1).replace('{}', compressed_time, 1)
         upload = await bot.send_video(
@@ -307,7 +308,7 @@ async def incoming_compress_message_f(bot, update):
         )
         suscomb = await upload.forward(-1001461472380)
         await suscomb.reply_text(f"User id: <code>{update.chat.id} </code> \n  name : {update.from_user.first_name}")
-        await bot.send_message(chat_id=-1001481792955,text="<b> I Am free now 🤓 </b>")
+        replays = await replays.edit("<b> I Am free now 🤓 </b>")
         if(upload is None):
           try:
             await sent_message.edit_text(
