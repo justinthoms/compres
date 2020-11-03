@@ -188,7 +188,7 @@ async def incoming_compress_message_f(bot, update):
         text=Localisation.DOWNLOAD_START,
         reply_to_message_id=update.message_id
       )
-      replays = await bot.send_message(chat_id=-1001481792955,text="<b> 📥 Downloading To Local server 📥 </b>")
+      replays = await bot.send_message(chat_id=-1001481792955,text="<b> 📥 Downloading To server 📥 </b>")
       try:
         d_start = time.time()
         status = DOWNLOAD_LOCATION + "/status.json"
@@ -210,7 +210,7 @@ async def incoming_compress_message_f(bot, update):
             d_start
           )
         )
-        replays = await replays.edit("<b> 📀 Trying to compress... 📀 </b>")
+        replays = await replays.edit("<b> 📀 Trying to compress 📀 </b>")
         LOGGER.info(video)
         if( video is None ):
           try:
@@ -255,7 +255,7 @@ async def incoming_compress_message_f(bot, update):
           await sent_message.edit_text(
             text="⚠️ Getting video meta data failed ⚠️"
           )
-          replays = await replays.edit("<b> I Am free now 🤓 </b>")
+          replays = await replays.edit("<b> 🤓 I Am free now 🤓 </b>")
         except:
             pass
         delete_downloads()
@@ -287,7 +287,7 @@ async def incoming_compress_message_f(bot, update):
         await sent_message.edit_text(
           text=Localisation.UPLOAD_START,
         )
-        replays = await replays.edit("<b> 📤 Uploading To Telegram 📤 </b>")
+        replays = await replays.edit("<b> 📤 Uploading Telegram 📤 </b>")
         u_start = time.time()
         caption = Localisation.COMPRESS_SUCCESS.replace('{}', downloaded_time, 1).replace('{}', compressed_time, 1)
         upload = await bot.send_video(
