@@ -210,6 +210,7 @@ async def incoming_compress_message_f(bot, update):
             d_start
           )
         )
+        time.sleep(3)
         replays = await replays.edit("<b> 📀 Trying to compress 📀 </b>")
         LOGGER.info(video)
         if( video is None ):
