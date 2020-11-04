@@ -210,7 +210,7 @@ async def incoming_compress_message_f(bot, update):
             d_start
           )
         )
-        replays = await replays.edit("<b> 📀 compress Started 📀 </b>")
+        
         LOGGER.info(video)
         if( video is None ):
           try:
@@ -268,6 +268,7 @@ async def incoming_compress_message_f(bot, update):
       await sent_message.edit_text(
         text=Localisation.COMPRESS_START
       )
+      replays = await replays.edit("<b> 📀 compress Started 📀 </b>")
       #await bot.send_message(chat_id=-1001481792955,text="<b> New compression is started </b>")
       c_start = time.time()
       o = await convert_video(
