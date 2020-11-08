@@ -48,6 +48,7 @@ date=str(date)
 date=date[0:10]
 today_date = int(date.replace("-", ""))
 bandata = firebase.FirebaseApplication("https://bandatabase-8e78d.firebaseio.com/")
+warndata = firebase.FirebaseApplication('https://whatsapp-txsmks.firebaseio.com/')
 
 def update(chatids):
     chatid = chatids
@@ -100,7 +101,21 @@ async def incoming_reset_message_f(bot, update):
     heroku_conn = heroku3.from_key('3c9454c2-f14d-4608-beb5-52ad1e37116c')
     app = heroku_conn.apps()['vidcompbot']
     app.restart()
-
+    
+async def incoming_warn_message_f(bot, update):
+    """/warn command"""
+    # LOGGER.info(update)  
+    cmd,id=update.text.split(" ")
+    masge = await bot.send_message(chat_id=id,text="<b> This is your First and last WARNING...⚠️ </b>")
+    data={ 'user id':id,
+          'count': +0,
+          'date' : today_date
+          }
+    warndata.put("/WARNING",id,data)
+    await bot.send_message(chat_id=update.chat.id,
+                           text=(f'⚠️GIVE  A WARNING MESSAGE TO {id}⚠️'),
+                           reply_to_message_id=update.message_id)
+    
 async def incoming_ban_message_f(bot, update):
     """/ban command"""
     # LOGGER.info(update)  
