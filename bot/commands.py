@@ -34,6 +34,10 @@ class Command:
         "COMMAND_ABOUT",
         "about"
     )
+    WARN = get_config(
+        "COMMAND_WARN",
+        "warn"
+    )
     BAN = get_config(
         "COMMAND_BAN",
         "ban"
