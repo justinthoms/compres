@@ -32,7 +32,8 @@ from bot.plugins.incoming_message_fn import (
     incoming_donate_message_f,
     incoming_reset_message_f,
     incoming_ban_message_f,
-    incoming_unban_message_f
+    incoming_unban_message_f,
+    incoming_warn_message_f
 )
 
 
@@ -131,6 +132,14 @@ if __name__ == "__main__" :
         filters=Filters.command([Command.BAN]) & Filters.chat(chats=AUTH_USERS)
     )
     app.add_handler(incoming_ban_message_handler)
+    
+     #WARN command
+    incoming_warn_message_handler = MessageHandler(
+        incoming_warn_message_f,
+        filters=Filters.command([Command.WARN]) & Filters.chat(chats=AUTH_USERS)
+    )
+    app.add_handler(incoming_warn_message_handler)
+    
 
     # UNBAN command
     incoming_unban_message_handler = MessageHandler(
