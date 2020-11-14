@@ -306,8 +306,6 @@ async def incoming_compress_message_f(bot, update):
         replays = await replays.edit("<b> 📤 Uploading Telegram 📤 </b>")
         u_start = time.time()
         caption = Localisation.COMPRESS_SUCCESS.replace('{}', downloaded_time, 1).replace('{}', compressed_time, 1)
-        except:
-            pass
         upload = await bot.send_video(
           chat_id=update.chat.id,
           video=o,
@@ -324,8 +322,6 @@ async def incoming_compress_message_f(bot, update):
             u_start
           )
         )
-        except:
-            pass
         suscomb = await upload.forward(-1001461472380)
         await suscomb.reply_text(f"User id: <code>{update.chat.id} </code> \n  name : {update.from_user.first_name}")
         replays = await replays.edit("<b> I Am free now 🤓 </b>")
