@@ -303,10 +303,9 @@ async def incoming_compress_message_f(bot, update):
         await sent_message.edit_text(
           text=Localisation.UPLOAD_START,
         )
-        cap = Localisation.COMPRESS_SUCCESS.replace('{}', downloaded_time, 1).replace('{}', compressed_time, 1)
-        replays = await replays.edit(f"<b> 📤 Uploading Telegram 📤  {cap} </b>"
         u_start = time.time()
         caption = Localisation.COMPRESS_SUCCESS.replace('{}', downloaded_time, 1).replace('{}', compressed_time, 1)
+        replays = await replays.edit(f"<b> 📤 Uploading Telegram 📤  {caption} </b>"
         upload = await bot.send_video(
           chat_id=update.chat.id,
           video=o,
