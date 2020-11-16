@@ -300,13 +300,13 @@ async def incoming_compress_message_f(bot, update):
       if o == 'stopped':
         return
       if o is not None:
-        await sent_message.edit_text(                    
-        text=Localisation.UPLOAD_START,                    
-      )
-      u_start = time.time()
-      caption = Localisation.COMPRESS_SUCCESS.replace('{}', downloaded_time, 1).replace('{}', compressed_time, 1)
-      replays = await replays.edit(f"<b> 📤 Uploading Telegram 📤  {caption} </b>"
-      upload = await bot.send_video(
+        await sent_message.edit_text(
+          text=Localisation.UPLOAD_START,
+        )
+        replays = await replays.edit("<b> 📤 Uploading Telegram 📤 </b>")
+        u_start = time.time()
+        caption = Localisation.COMPRESS_SUCCESS.replace('{}', downloaded_time, 1).replace('{}', compressed_time, 1)
+        upload = await bot.send_video(
           chat_id=update.chat.id,
           video=o,
           caption=caption,
@@ -359,6 +359,8 @@ async def incoming_compress_message_f(bot, update):
         await sent_message.edit_text(
           text="⚠️ Failed Downloaded path not exist ⚠️"
         )
+        replays = await replays.edit("<b> ⚠️ Failed Downloaded path not exist ⚠️ </b>")
+        await replays.reply_text("<b> I Am free now 🤓 </b>")
       except:
         pass
     
