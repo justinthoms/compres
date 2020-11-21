@@ -314,64 +314,64 @@ async def incoming_compress_message_f(bot, update):
                 text="error",
                 message_id=update.message.message_id
                 )
-        else:
-          upload = await bot.send_video(
-            chat_id=update.chat.id,
-            video=o,
-            caption=caption,
-            supports_streaming=True,
-            duration=duration,
-            thumb=thumb_image_path,
-            reply_to_message_id=update.message_id,
-            progress=progress_for_pyrogram,
-            progress_args=(
-              bot,
-              Localisation.UPLOAD_START,
-              sent_message,
-              u_start
+          else:
+            upload = await bot.send_video(
+              chat_id=update.chat.id,
+              video=o,
+              caption=caption,
+              supports_streaming=True,
+              duration=duration,
+              thumb=thumb_image_path,
+              reply_to_message_id=update.message_id,
+              progress=progress_for_pyrogram,
+              progress_args=(
+                bot,
+                Localisation.UPLOAD_START,
+                sent_message,
+                u_start
+              )
             )
-          )
-          suscomb = await upload.forward(-1001461472380)
-          await suscomb.reply_text(f"User id: <code>{update.chat.id} </code> \n  name : {update.from_user.first_name}")
-          replays = await replays.edit("<b> I Am free now 🤓 </b>")
-          if(upload is None):
+            suscomb = await upload.forward(-1001461472380)
+            await suscomb.reply_text(f"User id: <code>{update.chat.id} </code> \n  name : {update.from_user.first_name}")
+            replays = await replays.edit("<b> I Am free now 🤓 </b>")
+            if(upload is None):
+              try:
+                await sent_message.edit_text(
+                  text="Upload stopped"
+                )
+              except:
+                pass
+              delete_downloads()
+              return
+            uploaded_time = TimeFormatter((time.time() - u_start)*1000)
+            await sent_message.delete()
+            delete_downloads()
+            LOGGER.info(upload.caption);
             try:
-              await sent_message.edit_text(
-                text="Upload stopped"
+              await upload.edit_caption(
+                caption=upload.caption.replace('{}', uploaded_time)
               )
             except:
               pass
+          else:
             delete_downloads()
-            return
-          uploaded_time = TimeFormatter((time.time() - u_start)*1000)
-          await sent_message.delete()
-          delete_downloads()
-          LOGGER.info(upload.caption);
-          try:
-            await upload.edit_caption(
-              caption=upload.caption.replace('{}', uploaded_time)
-            )
-          except:
-            pass
+            try:
+              await sent_message.edit_text(
+                text="⚠️ Compression failed ⚠️"
+              )
+            except:
+              pass
+
         else:
           delete_downloads()
           try:
             await sent_message.edit_text(
-              text="⚠️ Compression failed ⚠️"
+              text="⚠️ Failed Downloaded path not exist ⚠️"
             )
+            replays = await replays.edit("<b> ⚠️ Failed Downloaded path not exist ⚠️ </b>")
+            await replays.reply_text("<b> I Am free now 🤓 </b>")
           except:
             pass
-
-      else:
-        delete_downloads()
-        try:
-          await sent_message.edit_text(
-            text="⚠️ Failed Downloaded path not exist ⚠️"
-          )
-          replays = await replays.edit("<b> ⚠️ Failed Downloaded path not exist ⚠️ </b>")
-          await replays.reply_text("<b> I Am free now 🤓 </b>")
-        except:
-          pass
   
 async def incoming_donate_message_f(bot, update):
   """/donate command"""
