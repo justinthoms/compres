@@ -307,32 +307,33 @@ async def incoming_compress_message_f(bot, update):
         u_start = time.time()
         caption = Localisation.COMPRESS_SUCCESS.replace('{}', downloaded_time, 1).replace('{}', compressed_time, 1)
         file_size = os.stat(DOWNLOAD_LOCATION).st_size
-          if file_size > 2097152000:
-            try:
-              await bot.edit_message_text(
-                  chat_id=update.message.chat.id,
-                  text="error",
-                  message_id=update.message.message_id)
-          else:
-            upload = await bot.send_video(
-              chat_id=update.chat.id,
-              video=o,
-              caption=caption,
-              supports_streaming=True,
-              duration=duration,
-              thumb=thumb_image_path,
-              reply_to_message_id=update.message_id,
-              progress=progress_for_pyrogram,
-              progress_args=(
-                bot,
-                Localisation.UPLOAD_START,
-                sent_message,
-                u_start
-              )
+        if file_size > 2097152000:
+          try:
+            await bot.edit_message_text(
+                chat_id=update.message.chat.id,
+                text="error",
+                message_id=update.message.message_id)
+            except:
+              pass
+          upload = await bot.send_video(
+            chat_id=update.chat.id,
+            video=o,
+            caption=caption,
+            supports_streaming=True,
+            duration=duration,
+            thumb=thumb_image_path,
+            reply_to_message_id=update.message_id,
+            progress=progress_for_pyrogram,
+            progress_args=(
+              bot,
+              Localisation.UPLOAD_START,
+              sent_message,
+              u_start
             )
-            suscomb = await upload.forward(-1001461472380)
-            await suscomb.reply_text(f"User id: <code>{update.chat.id} </code> \n  name : {update.from_user.first_name}")
-            replays = await replays.edit("<b> I Am free now 🤓 </b>")
+          )
+          suscomb = await upload.forward(-1001461472380)
+          await suscomb.reply_text(f"User id: <code>{update.chat.id} </code> \n  name : {update.from_user.first_name}")
+          replays = await replays.edit("<b> I Am free now 🤓 </b>")
           if(upload is None):
             try:
               await sent_message.edit_text(
