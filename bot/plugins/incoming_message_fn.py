@@ -314,8 +314,7 @@ async def incoming_compress_message_f(bot, update):
                 text="error",
                 message_id=update.message.message_id
                 )
-              except:
-                pass
+        else:
           upload = await bot.send_video(
             chat_id=update.chat.id,
             video=o,
