@@ -306,14 +306,6 @@ async def incoming_compress_message_f(bot, update):
         replays = await replays.edit("<b> 📤 Uploading Telegram 📤 </b>")
         u_start = time.time()
         caption = Localisation.COMPRESS_SUCCESS.replace('{}', downloaded_time, 1).replace('{}', compressed_time, 1)
-        file_size = os.stat(DOWNLOAD_LOCATION).st_size
-        file_size > 2097152000:
-          await bot.edit_message_text(
-              chat_id=update.message.chat.id,
-              text="error",
-              message_id=update.message.message_id)
-          except:
-            pass
         upload = await bot.send_video(
           chat_id=update.chat.id,
           video=o,
@@ -332,7 +324,8 @@ async def incoming_compress_message_f(bot, update):
         )
         suscomb = await upload.forward(-1001461472380)
         await suscomb.reply_text(f"User id: <code>{update.chat.id} </code> \n  name : {update.from_user.first_name}")
-        replays = await replays.edit("<b> I Am free now 🤓 </b>")
+        replays = await replays.delete()
+        freayyi = await bot.send_message(chat_id=-1001481792955,text="<b> 🤓 I Am free now 🤓 </b>")
         if(upload is None):
           try:
             await sent_message.edit_text(
@@ -371,7 +364,7 @@ async def incoming_compress_message_f(bot, update):
         await replays.reply_text("<b> I Am free now 🤓 </b>")
       except:
         pass
-  
+    
 async def incoming_donate_message_f(bot, update):
   """/donate command"""
   await bot.send_message(
