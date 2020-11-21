@@ -308,11 +308,14 @@ async def incoming_compress_message_f(bot, update):
         caption = Localisation.COMPRESS_SUCCESS.replace('{}', downloaded_time, 1).replace('{}', compressed_time, 1)
         file_size = os.stat(DOWNLOAD_LOCATION).st_size
         if file_size > 2097152000:
+          try:
             await bot.edit_message_text(
                 chat_id=update.message.chat.id,
                 text="error",
                 message_id=update.message.message_id
-        else:
+              except:
+                pass
+
           upload = await bot.send_video(
             chat_id=update.chat.id,
             video=o,
