@@ -313,6 +313,7 @@ async def incoming_compress_message_f(bot, update):
                 chat_id=update.message.chat.id,
                 text="error",
                 message_id=update.message.message_id
+                )
               except:
                 pass
 
