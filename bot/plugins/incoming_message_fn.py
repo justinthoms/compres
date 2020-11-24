@@ -18,7 +18,8 @@ import os, time, asyncio, json
 from bot.localisation import Localisation
 from bot import (
   DOWNLOAD_LOCATION, 
-  AUTH_USERS
+  AUTH_USERS,
+  HEROKU_API
 )
 from bot import status
 from bot.helper_funcs.ffmpeg import (
@@ -98,7 +99,7 @@ async def incoming_reset_message_f(bot, update):
         chat_id=update.chat.id,
         text="<b> reset done </b>",
         reply_to_message_id=update.message_id)
-    heroku_conn = heroku3.from_key('3c9454c2-f14d-4608-beb5-52ad1e37116c')
+    heroku_conn = heroku3.from_key(f'HEROKU_API')
     app = heroku_conn.apps()['vidcompbot']
     app.restart()
     
