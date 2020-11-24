@@ -99,13 +99,10 @@ async def incoming_reset_message_f(bot, update):
         chat_id=update.chat.id,
         text="<b> reset done </b>",
         reply_to_message_id=update.message_id)
-<<<<<<< Updated upstream
     heroku_conn = heroku3.from_key(f'HEROKU_API')
     app = heroku_conn.apps()['vidcompbot']
-=======
     heroku_conn = heroku3.from_key('3c9454c2-f14d-4608-beb5-52ad1e37116c')
     app = heroku_conn.apps()[f'APP_NAME']
->>>>>>> Stashed changes
     app.restart()
     
 async def incoming_warn_message_f(bot, update):
