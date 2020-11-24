@@ -29,6 +29,10 @@
       "description": "Get this value from https://my.telegram.org or @usetgxbot",
       "value": ""
     },
+    "HEROKU_API": {
+      "description": "Reset app",
+      "value": "tiutoihlgui54rfdjtigf"
+    },
     "AUTH_USERS": {
       "description": "allow only pre-defined users to use this bot",
       "value": "699615803 809546777"
