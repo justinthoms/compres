@@ -13,11 +13,8 @@ from bot.config import Config
 
 
 # TODO: is there a better way?
-<<<<<<< Updated upstream
 HEROKU_API = Config.HEROKU_API
-=======
 APP_NAME = Config.APP_NAME
->>>>>>> Stashed changes
 TG_BOT_TOKEN = Config.TG_BOT_TOKEN
 APP_ID = Config.APP_ID
 API_HASH = Config.API_HASH
