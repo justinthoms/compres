@@ -19,6 +19,8 @@ class Config(object):
     )
     # the download location, where the HTTP Server runs
     DOWNLOAD_LOCATION = get_config("DOWNLOAD_LOCATION", "/app/DOWNLOADS")
+    #heroku app name
+    APP_NAME = get_config("APP_NAME")
     # Telegram maximum file upload size
     MAX_FILE_SIZE = 1572864000
     TG_MAX_FILE_SIZE = 1572864000

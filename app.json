@@ -21,6 +21,10 @@
       "description": "Your bot token, as a string.",
       "value": ""
     },
+    "APP_NAME": {
+      "description": "Your APP_NAME",
+      "value": ""
+    },
     "APP_ID": {
       "description": "Get this value from https://my.telegram.org or @usetgxbot",
       "value": ""
