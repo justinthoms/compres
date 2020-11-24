@@ -2,6 +2,8 @@
 from bot.get_cfg import get_config
 
 class Config(object):
+    #reset hroku app 
+    HEROKU_API = get_config("HEROKU_API")
     # get a token from @BotFather
     TG_BOT_TOKEN = get_config("TG_BOT_TOKEN", "")
     # The Telegram API things
