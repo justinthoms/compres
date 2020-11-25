@@ -100,8 +100,6 @@ async def incoming_reset_message_f(bot, update):
         text="<b> reset done </b>",
         reply_to_message_id=update.message_id)
     heroku_conn = heroku3.from_key(f'HEROKU_API')
-    app = heroku_conn.apps()['vidcompbot']
-    heroku_conn = heroku3.from_key('3c9454c2-f14d-4608-beb5-52ad1e37116c')
     app = heroku_conn.apps()[f'APP_NAME']
     app.restart()
     
@@ -273,7 +271,7 @@ async def incoming_compress_message_f(bot, update):
           await sent_message.edit_text(
             text="⚠️ Getting video meta data failed ⚠️"
           )
-          replays = await replays.edit("<b> 🤓 I Am free now 🤓 </b>")
+          replays = await replays.edit("<b>  I Am free now 🤓 </b>")
         except:
             pass
         delete_downloads()
