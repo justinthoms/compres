@@ -19,7 +19,8 @@ from bot.localisation import Localisation
 from bot import (
   DOWNLOAD_LOCATION, 
   AUTH_USERS,
-  HEROKU_API
+  HEROKU_API,
+  APP_NAME
 )
 from bot import status
 from bot.helper_funcs.ffmpeg import (
