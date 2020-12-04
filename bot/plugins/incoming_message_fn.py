@@ -99,8 +99,8 @@ async def incoming_reset_message_f(bot, update):
     await bot.send_message(
         chat_id=update.chat.id,
         text="<b> reset done </b>",
-        reset_server = await bot.send_message(chat_id=-1001481792955,text="<b> server RE-set </b>"),
         reply_to_message_id=update.message_id)
+    await bot.send_message(chat_id=-1001481792955,text="<b> server RE-set </b>")
     heroku_conn = heroku3.from_key(HEROKU_API)
     app = heroku_conn.apps()[APP_NAME]
     app.restart()
